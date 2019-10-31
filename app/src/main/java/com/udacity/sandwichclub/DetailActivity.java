@@ -27,14 +27,12 @@ public class DetailActivity extends AppCompatActivity {
         if (intent == null) {
             closeOnError();
         }
-
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
         if (position == DEFAULT_POSITION) {
             // EXTRA_POSITION not found in intent
             closeOnError();
             return;
         }
-
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
         String json = sandwiches[position];
         Sandwich sandwich = JsonUtils.parseSandwichJson(json);
@@ -43,8 +41,6 @@ public class DetailActivity extends AppCompatActivity {
             closeOnError();
             return;
         }
-
-
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())

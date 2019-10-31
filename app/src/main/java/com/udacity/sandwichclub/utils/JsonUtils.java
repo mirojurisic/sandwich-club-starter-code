@@ -27,7 +27,6 @@ public class JsonUtils {
             JSONObject sandwiches = new JSONObject(json);
             JSONObject baseName = sandwiches.getJSONObject("name");
             mainName = baseName.getString("mainName");
-            Log.v("Json_parsing",mainName);
             JSONArray alsoKnownAs1 = baseName.getJSONArray("alsoKnownAs");
             if(alsoKnownAs1.length()>0)
             {
@@ -40,11 +39,9 @@ public class JsonUtils {
                 placeOfOrigin = sandwiches.getString("placeOfOrigin");
             if(sandwiches.has("description"))
                 description = sandwiches.getString("description");
-            Log.v("Json_parsing",description);
 
             if(sandwiches.has("image"))
                 image = sandwiches.getString("image");
-            Log.v("Json_parsing",image);
             if(sandwiches.has("ingredients"))
                  ingredients1 = sandwiches.getJSONArray("ingredients");
             if(!ingredients.isEmpty() && ingredients1.length()>0)
